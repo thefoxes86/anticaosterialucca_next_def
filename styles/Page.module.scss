@@ -1,0 +1,56 @@
+@import "./variables";
+
+.page-template-default {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: $gradient-photo,
+    url("https://anticaosterialucca.it/wp-content/themes/wordpressify/img/bg_home.png");
+  background-size: cover;
+}
+
+.grid__container__page {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  grid-template-areas:
+    "book . logo . menu"
+    "image image text text text"
+    "image image text text text"
+    ". . . . .";
+
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.page-template-default .logo img {
+  width: 200px;
+}
+
+.gallery__page {
+  grid-area: image;
+}
+
+.content__page {
+  grid-area: text;
+}
+.content__page h1 {
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 0 40px;
+  margin: 0;
+}
+.content__page p {
+  padding: 0 40px;
+  margin: 0;
+  color: white;
+  font-size: 18px;
+  line-height: 2.2;
+}
