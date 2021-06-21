@@ -6,7 +6,7 @@
   height: 100vh;
   margin: 0;
   background: $gradient-photo,
-    url("https://anticaosterialucca.it/wp-content/themes/wordpressify/img/bg_home.png");
+    url("https://backend.anticaosterialucca.it/wp-content/themes/wordpressify/img/bg_home.png");
   background-size: cover;
 }
 
@@ -18,14 +18,14 @@
   left: 0;
   top: 0;
   grid-template-areas:
-    "book logo logo logo menu"
-    ". logo logo logo ."
-    ". . . . ."
-    "cibo vino storia citta contatti"
-    ". . . . .";
+    "book logo menu"
+    ". logo ."
+    ". . ."
+    "cibo vino contatti"
+    ". . .";
 
   grid-template-rows: 1fr 1fr 1fr 1.5fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
@@ -35,6 +35,7 @@
   align-items: flex-start;
   justify-content: center;
   padding-top: 20px;
+  z-index: 9;
 }
 
 .book a {
@@ -42,6 +43,7 @@
   text-transform: uppercase;
   font-size: 22px;
   text-decoration: none;
+  z-index: 9;
 }
 
 .logo {
@@ -51,6 +53,7 @@
   justify-content: center;
   align-items: flex-start;
   padding-top: 20px;
+  z-index: 9;
 }
 .home .logo img {
   width: 600px;
