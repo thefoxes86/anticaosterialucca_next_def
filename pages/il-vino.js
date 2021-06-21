@@ -23,8 +23,8 @@ export default function Vino(props) {
     }
 
     if (descriptionDicplacement === 0 && direction === "prev") {
-      descriptionDicplacement = -275;
-    } else if (descriptionDicplacement === -275 && direction === "next") {
+      descriptionDicplacement = -225;
+    } else if (descriptionDicplacement === -225 && direction === "next") {
       descriptionDicplacement = 0;
     } else {
       descriptionDicplacement =
@@ -64,12 +64,39 @@ export default function Vino(props) {
   const startNextDistortAnimation = () => {
     indexEl.current = indexEl.current >= 4 ? 0 : indexEl.current + 1;
 
-    background.current.src = bgImages[indexEl.current];
+    gsap.to(background.current, {
+      opacity: 0,
+      ease: "power4.out",
+      duration: 1.2,
+      onComplete: () => {
+        gsap.to(background.current, {
+          opacity: 1,
+          ease: "power4.out",
+          duration: 0.8,
+        });
+        background.current.src = bgImages[indexEl.current];
+      },
+    });
+
     showTextAnimation("next");
   };
   const startPrevDistortAnimation = () => {
     indexEl.current = indexEl.current <= 0 ? 4 : indexEl.current - 1;
-    background.current.src = bgImages[indexEl.current];
+
+    gsap.to(background.current, {
+      opacity: 0,
+      ease: "power4.out",
+      duration: 1.2,
+      onComplete: () => {
+        gsap.to(background.current, {
+          opacity: 1,
+          ease: "power4.out",
+          duration: 0.8,
+        });
+        background.current.src = bgImages[indexEl.current];
+      },
+    });
+
     showTextAnimation("prev");
   };
 
@@ -83,6 +110,8 @@ export default function Vino(props) {
       swipeThreshold: false,
       dragThreshold: false,
     }).mount();
+
+    background.current.classList.add("active");
 
     console.log(glide.index);
     return () => {};
@@ -184,11 +213,7 @@ export default function Vino(props) {
             </div>
           </div>
           <div className="background">
-            <img
-              ref={background}
-              src="https://backend.anticaosterialucca.it/wp-content/uploads/2021/06/tagliolino-ragù-bianco-di-maiale-nero-scaled.jpg"
-              alt=""
-            />
+            <img ref={background} src={bgImages[0]} alt="" />
           </div>
         </div>
       </div>
