@@ -276,47 +276,81 @@
     transform: scale(0.6);
     transform-origin: left;
   }
-  .slide {
-    height: 250px;
-    width: 175px;
-  }
-  .slider-image {
-    height: 180px;
-    width: 150px;
-    margin-right: 70px;
-  }
-  .glide__slide--active .slider-image {
-    height: 200px;
+  .content .glide {
+    .slide {
+      height: 250px;
+      width: 175px;
+    }
+    .slider-image {
+      height: 180px;
+      width: 150px;
+      margin-left: 70px;
+    }
+    .glide__slide--active .slider-image {
+      height: 200px;
+    }
   }
 }
 
 @media screen and (max-width: 1200px) {
+  .grid__container__page {
+    padding: 0px;
+  }
   .content {
     flex-direction: column;
 
     .glide {
       width: 100%;
-      padding-left: 120px;
       padding-top: 40px;
+
+      .slide {
+        height: 250px;
+        width: 175px;
+
+        p {
+          font-size: 12px;
+        }
+      }
+      .slider-image {
+        height: 180px;
+        width: 150px;
+        margin-left: 70px;
+      }
+      .glide__slide--active .slider-image {
+        height: 300px;
+      }
     }
 
     .text-wrapper {
       width: 100%;
       .text {
-        padding-left: 120px;
+        padding-left: 10px;
+        padding-right: 10px;
         padding-top: 15vh;
+
+        #title h4 {
+          transform: scale(0.4);
+        }
       }
     }
   }
+}
 
-  .slide {
-    height: 300px;
-    width: 200px;
+@media screen and (max-width: 768px) {
+  .page-template-default .logo img {
+    width: 150px;
   }
-  .slider-image {
-    height: 220px;
-  }
-  .slide p {
-    font-size: 12px;
+
+  .grid__container__home {
+    grid-template-areas:
+      "book logo menu"
+      ". . ."
+      ". cibo ."
+      ". vino ."
+      ". contatti .";
+
+    grid-template-rows: 1fr 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
   }
 }

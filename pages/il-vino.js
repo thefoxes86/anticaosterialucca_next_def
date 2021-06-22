@@ -109,6 +109,11 @@ export default function Vino(props) {
       perView: 3,
       swipeThreshold: false,
       dragThreshold: false,
+      breakpoints: {
+        800: {
+          perView: 1,
+        },
+      },
     }).mount();
 
     background.current.classList.add("active");

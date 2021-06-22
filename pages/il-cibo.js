@@ -4,7 +4,9 @@ import Header from "../components/Header";
 import Glide from "@glidejs/glide";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-export default function Cibo(props) {
+import { gql } from "@apollo/client";
+import client from "../lib/apollo-client";
+export default function Cibo({ photos }) {
   const background = useRef();
   const indexEl = useRef(0);
   let titleDisplacement = 0;
@@ -109,6 +111,11 @@ export default function Cibo(props) {
       perView: 3,
       swipeThreshold: false,
       dragThreshold: false,
+      breakpoints: {
+        800: {
+          perView: 2,
+        },
+      },
     }).mount();
 
     background.current.classList.add("active");
@@ -220,3 +227,14 @@ export default function Cibo(props) {
     </>
   );
 }
+
+// export async function getStaticProps() {
+//   const { data } = await client.query({
+//     query: gql``,
+//   });
+//   return {
+//     props: {
+//       photos: data.photos,
+//     },
+//   };
+// }

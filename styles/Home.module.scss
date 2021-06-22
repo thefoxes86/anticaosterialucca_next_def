@@ -205,3 +205,18 @@
 .contatti {
   grid-area: contatti;
 }
+
+@media screen and (max-width: 768px) {
+  .menu .overlay_menu {
+    width: 80vw;
+    position: fixed;
+    z-index: 98;
+    border-radius: 20px;
+    top: 0vh;
+    right: -80vw;
+  }
+
+  .home .logo img {
+    width: 150px;
+  }
+}
