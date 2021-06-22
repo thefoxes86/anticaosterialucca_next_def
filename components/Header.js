@@ -11,7 +11,7 @@ export default function Header(props) {
       <div className="logo">
         <Link href="/">
           <a>
-            <img src="https://backend.anticaosterialucca.it/wp-content/themes/wordpressify/img/logo.png" />
+            <img src="https://anticaosterialucca.it/wp-content/themes/wordpressify/img/logo.png" />
           </a>
         </Link>
       </div>
