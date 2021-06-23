@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/Header";
+import { pathBackend } from "../lib/path";
 import "../styles/Home.module.scss";
 
 export default function Home() {
@@ -16,7 +17,9 @@ export default function Home() {
             <Link href="/il-cibo">
               <a>
                 <div className="black__box">
-                  <img src="https://anticaosterialucca.it/wp-content/themes/wordpressify/img/cibo.png" />
+                  <img
+                    src={`${pathBackend}/wp-content/themes/wordpressify/img/cibo.png`}
+                  />
                   <span>IL CIBO</span>
                 </div>
               </a>
@@ -26,7 +29,9 @@ export default function Home() {
             <Link href="/il-vino">
               <a>
                 <div className="black__box">
-                  <img src="https://anticaosterialucca.it/wp-content/themes/wordpressify/img/vino.png" />
+                  <img
+                    src={`${pathBackend}/wp-content/themes/wordpressify/img/vino.png`}
+                  />
                   <span>IL VINO</span>
                 </div>
               </a>
@@ -36,7 +41,9 @@ export default function Home() {
             <Link href="/i-contatti">
               <a>
                 <div className="black__box">
-                  <img src="https://anticaosterialucca.it/wp-content/themes/wordpressify/img/contatti.png" />
+                  <img
+                    src={`${pathBackend}/wp-content/themes/wordpressify/img/contatti.png`}
+                  />
                   <span>I CONTATTI</span>
                 </div>
               </a>

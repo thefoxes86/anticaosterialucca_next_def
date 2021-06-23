@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Link from "next/link";
+import { pathBackend } from "../lib/path";
 export default function Header(props) {
   return (
     <>
@@ -11,7 +12,9 @@ export default function Header(props) {
       <div className="logo">
         <Link href="/">
           <a>
-            <img src="https://anticaosterialucca.it/wp-content/themes/wordpressify/img/logo.png" />
+            <img
+              src={`${pathBackend}/wp-content/themes/wordpressify/img/logo.png`}
+            />
           </a>
         </Link>
       </div>

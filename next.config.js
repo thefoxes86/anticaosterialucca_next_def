@@ -15,3 +15,15 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
 };
+
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: "/menu-ristorante",
+        destination: "https://backend.anticaosterialucca.it/menu-ristorante",
+        permanent: true,
+      },
+    ];
+  },
+};

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Glide from "@glidejs/glide";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { pathBackend } from "../lib/path";
 export default function Vino(props) {
   const background = useRef();
   const indexEl = useRef(0);
@@ -151,7 +152,7 @@ export default function Vino(props) {
                     <div className="slide">
                       <div className="slider-image">
                         <img
-                          src="https://anticaosterialucca.it/wp-content/uploads/2021/06/un-bel-profitterol--scaled.jpg"
+                          src={`${pathBackend}/wp-content/uploads/2021/06/un-bel-profitterol--scaled.jpg`}
                           alt=""
                         />
                       </div>
@@ -161,7 +162,7 @@ export default function Vino(props) {
                     <div className="slide">
                       <div className="slider-image">
                         <img
-                          src="https://anticaosterialucca.it/wp-content/uploads/2021/06/tiramisù-ai-pistacchi-scaled.jpg"
+                          src={`${pathBackend}/wp-content/uploads/2021/06/tiramisù-ai-pistacchi-scaled.jpg`}
                           alt=""
                         />
                       </div>
@@ -171,7 +172,7 @@ export default function Vino(props) {
                     <div className="slide">
                       <div className="slider-image">
                         <img
-                          src="https://anticaosterialucca.it/wp-content/uploads/2021/06/tempura-di-naselli-Gazpacho-scaled.jpg"
+                          src={`${pathBackend}/wp-content/uploads/2021/06/tempura-di-naselli-Gazpacho-scaled.jpg`}
                           alt=""
                         />
                       </div>
@@ -181,7 +182,7 @@ export default function Vino(props) {
                     <div className="slide">
                       <div className="slider-image">
                         <img
-                          src="https://anticaosterialucca.it/wp-content/uploads/2021/06/tarte-de-citron-scaled.jpg"
+                          src={`${pathBackend}/wp-content/uploads/2021/06/tarte-de-citron-scaled.jpg`}
                           alt=""
                         />
                       </div>
@@ -191,7 +192,7 @@ export default function Vino(props) {
                     <div className="slide">
                       <div className="slider-image">
                         <img
-                          src="https://anticaosterialucca.it/wp-content/uploads/2021/06/tagliolino-ragù-bianco-di-maiale-nero-scaled.jpg"
+                          src={`${pathBackend}/wp-content/uploads/2021/06/tagliolino-ragù-bianco-di-maiale-nero-scaled.jpg`}
                           alt=""
                         />
                       </div>
