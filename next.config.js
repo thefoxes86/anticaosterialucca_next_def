@@ -16,11 +16,16 @@ module.exports = {
   },
 };
 
-module.exports = () => ({
-  plugins: {
-    autoprefixer: {},
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+    ],
   },
-});
+};
 
 module.exports = {
   async redirects() {
