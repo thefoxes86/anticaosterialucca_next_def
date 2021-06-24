@@ -151,7 +151,7 @@ export default function Cibo({ photos }) {
           <Header />
           <div className="content">
             <div className="text-wrapper">
-              <div className="text">
+              {/* <div className="text">
                 <div id="title">
                   {photos.galleriePagineNext.gallery &&
                     photos.galleriePagineNext.gallery.map(({ name }) => (
@@ -170,7 +170,7 @@ export default function Cibo({ photos }) {
                       ></p>
                     ))}
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="glide">
               <div className="glide_cover"></div>
