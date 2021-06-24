@@ -7,6 +7,8 @@ import gsap from "gsap";
 import { gql } from "@apollo/client";
 import client from "../lib/apollo-client";
 import { pathBackend } from "../lib/path";
+import { data } from "autoprefixer";
+
 export default function Cibo({ photos }) {
   const background = useRef();
   const indexEl = useRef(0);
@@ -70,7 +72,7 @@ export default function Cibo({ photos }) {
     gsap.to(background.current, {
       opacity: 0,
       ease: "power4.out",
-      duration: 1.2,
+      duration: 0.4,
       onComplete: () => {
         gsap.to(background.current, {
           opacity: 1,
@@ -89,7 +91,7 @@ export default function Cibo({ photos }) {
     gsap.to(background.current, {
       opacity: 0,
       ease: "power4.out",
-      duration: 1.2,
+      duration: 0.4,
       onComplete: () => {
         gsap.to(background.current, {
           opacity: 1,
@@ -133,7 +135,7 @@ export default function Cibo({ photos }) {
             <div className="text-wrapper">
               <div className="text">
                 <div id="title">
-                  <h4>PRIMO</h4>
+                  <h4 dangerouslySetInnerHTML={{ __html: photos.title }}></h4>
                   <h4>SECONDO</h4>
                   <h4>TERZO</h4>
                   <h4>QUARTO</h4>
@@ -229,13 +231,44 @@ export default function Cibo({ photos }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const { data } = await client.query({
-//     query: gql``,
-//   });
-//   return {
-//     props: {
-//       photos: data.photos,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+      query MyQuery {
+        page(id: 8, idType: DATABASE_ID) {
+          title(format: RENDERED)
+          uri
+          slug
+          content(format: RENDERED)
+          featuredImage {
+            node {
+              link
+              srcSet(size: LARGE)
+              title(format: RENDERED)
+              uri
+              sourceUrl(size: LARGE)
+            }
+          }
+          galleriePagineNext {
+            gallery {
+              name
+              description
+              fieldGroupName
+              image {
+                sourceUrl(size: LARGE)
+                srcSet(size: LARGE)
+                title(format: RENDERED)
+              }
+            }
+            fieldGroupName
+          }
+        }
+      }
+    `,
+  });
+  return {
+    props: {
+      photos: data.page,
+    },
+  };
+}

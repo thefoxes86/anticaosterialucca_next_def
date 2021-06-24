@@ -24,6 +24,16 @@ module.exports = {
         destination: "https://backend.anticaosterialucca.it/menu-ristorante",
         permanent: true,
       },
+      {
+        source: "/wp-admin",
+        destination: "https://backend.anticaosterialucca.it/wp-admin",
+        permanent: true,
+      },
+      {
+        source: "/wp-login.php",
+        destination: "https://backend.anticaosterialucca.it/wp-admin",
+        permanent: true,
+      },
     ];
   },
 };
