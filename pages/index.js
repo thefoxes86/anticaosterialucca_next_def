@@ -2,28 +2,31 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { gql } from "@apollo/client";
+import client from "../lib/apollo-client";
 import Header from "../components/Header";
 import { pathBackend } from "../lib/path";
 import "../styles/Home.module.scss";
 
-export default function Home() {
+export default function Home({ photos }) {
   const radialGradient =
     "radial-gradient(rgba(64, 37, 0, 0.78), rgba(13, 7, 0, 0.78))";
 
   const randomNumber = Math.floor(Math.random() * 5);
-  const bgImages = [
-    "img/un-bel-profitterol--scaled.jpg",
-    "img/tiramisù-ai-pistacchi-scaled.jpg",
-    "img/tempura-di-naselli-Gazpacho-scaled.jpg",
-    "img/tarte-de-citron-scaled.jpg",
-    "img/tagliolino-ragù-bianco-di-maiale-nero-scaled.jpg",
-  ];
+  const bgImages = [];
+
+  photos.galleriePagineNext.gallery &&
+    photos.galleriePagineNext.gallery.forEach((element) =>
+      bgImages.push(element.image.sourceUrl)
+    );
   return (
     <>
       <div
         className="home"
         style={{
           background: `${radialGradient}, url(${bgImages[randomNumber]})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       >
         <div className="grid__container__home">
@@ -69,4 +72,46 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+      query MyQuery {
+        page(id: 6, idType: DATABASE_ID) {
+          title(format: RENDERED)
+          uri
+          slug
+          content(format: RENDERED)
+          featuredImage {
+            node {
+              link
+              srcSet(size: LARGE)
+              title(format: RENDERED)
+              uri
+              sourceUrl(size: LARGE)
+            }
+          }
+          galleriePagineNext {
+            gallery {
+              name
+              description
+              fieldGroupName
+              image {
+                sourceUrl(size: LARGE)
+                srcSet(size: LARGE)
+                title(format: RENDERED)
+              }
+            }
+            fieldGroupName
+          }
+        }
+      }
+    `,
+  });
+  return {
+    props: {
+      photos: data.page,
+    },
+  };
 }
