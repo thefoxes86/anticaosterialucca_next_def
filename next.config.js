@@ -16,6 +16,12 @@ module.exports = {
   },
 };
 
+module.exports = () => ({
+  plugins: {
+    autoprefixer: {},
+  },
+});
+
 module.exports = {
   async redirects() {
     return [
