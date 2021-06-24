@@ -5,7 +5,7 @@ export default function Header(props) {
   return (
     <>
       <div className="book">
-        <Link href="/prenota">
+        <Link href="/i-contatti">
           <a>PRENOTA</a>
         </Link>
       </div>
@@ -29,13 +29,13 @@ export default function Header(props) {
         <div className="overlay_menu">
           <ul>
             <li>
-              <Link href="/il-cibo">
-                <a>IL CIBO</a>
+              <Link href="/i-piatti">
+                <a>I PIATTI</a>
               </Link>
             </li>
             <li>
-              <Link href="/il-vino">
-                <a href="/il-vino">IL VINO</a>
+              <Link href="/il-ristorante">
+                <a href="/il-ristorante">IL RISTORANTE</a>
               </Link>
             </li>
 

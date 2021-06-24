@@ -133,7 +133,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 
   .text-wrapper {
     width: 60%;
@@ -194,6 +194,7 @@
   .glide {
     width: 40%;
     overflow: hidden;
+    margin-bottom: 10vh;
 
     .glide_cover {
       position: absolute;

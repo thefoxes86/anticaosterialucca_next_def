@@ -13,3 +13,31 @@ body {
   width: 100vw;
   overflow: hidden;
 }
+
+.partners__brand {
+  width: 100vw;
+  height: 4vh;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin-left: 10px;
+  }
+
+  a:nth-child(1),
+  a:nth-child(1) img {
+    height: 60%;
+  }
+
+  a:nth-child(2),
+  a:nth-child(2) img {
+    height: 80%;
+  }
+  a:nth-child(3),
+  a:nth-child(3) img {
+    height: 70%;
+  }
+}

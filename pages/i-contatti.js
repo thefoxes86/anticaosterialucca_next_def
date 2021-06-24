@@ -1,9 +1,9 @@
 /* eslint-disable */
 import "../styles/Page.module.scss";
 import Header from "../components/Header";
-import Glide from "@glidejs/glide";
+import Footer from "../components/Footer";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
+
 import { pathBackend } from "../lib/path";
 export default function Contatti(props) {
   const background = useRef();
@@ -105,6 +105,7 @@ export default function Contatti(props) {
           <div className="background">
             <img ref={background} src={bgImages[randomNumber]} alt="" />
           </div>
+          <Footer />
         </div>
       </div>
     </>

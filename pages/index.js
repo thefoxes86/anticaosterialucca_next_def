@@ -1,7 +1,6 @@
 /* eslint-disable */
-import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
+import Footer from "../components/Footer";
 import { gql } from "@apollo/client";
 import client from "../lib/apollo-client";
 import Header from "../components/Header";
@@ -33,25 +32,25 @@ export default function Home({ photos }) {
           <Header />
 
           <div className="cibo item__menu__home">
-            <Link href="/il-cibo">
+            <Link href="/i-piatti">
               <a>
                 <div className="black__box">
                   <img
                     src={`${pathBackend}/wp-content/themes/wordpressify/img/cibo.png`}
                   />
-                  <span>IL CIBO</span>
+                  <span>I PIATTI</span>
                 </div>
               </a>
             </Link>
           </div>
           <div className="vino item__menu__home">
-            <Link href="/il-vino">
+            <Link href="/il-ristorante">
               <a>
                 <div className="black__box">
                   <img
-                    src={`${pathBackend}/wp-content/themes/wordpressify/img/vino.png`}
+                    src={`${pathBackend}/wp-content/themes/wordpressify/img/lucca.png`}
                   />
-                  <span>IL VINO</span>
+                  <span>IL RISTORANTE</span>
                 </div>
               </a>
             </Link>
@@ -68,6 +67,7 @@ export default function Home({ photos }) {
               </a>
             </Link>
           </div>
+          <Footer />
         </div>
       </div>
     </>

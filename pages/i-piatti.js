@@ -1,13 +1,12 @@
 /* eslint-disable */
 import "../styles/Page.module.scss";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Glide from "@glidejs/glide";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { gql } from "@apollo/client";
 import client from "../lib/apollo-client";
-import { pathBackend } from "../lib/path";
-import { data } from "autoprefixer";
 
 export default function Cibo({ photos }) {
   const background = useRef();
@@ -152,7 +151,7 @@ export default function Cibo({ photos }) {
           <Header />
           <div className="content">
             <div className="text-wrapper">
-              <div className="text">
+              {/* <div className="text">
                 <div id="title">
                   {photos.galleriePagineNext.gallery &&
                     photos.galleriePagineNext.gallery.map(({ name }) => (
@@ -171,7 +170,7 @@ export default function Cibo({ photos }) {
                       ></p>
                     ))}
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="glide">
               <div className="glide_cover"></div>
@@ -215,6 +214,7 @@ export default function Cibo({ photos }) {
           <div className="background">
             <img ref={background} src={bgImages[0]} alt="" />
           </div>
+          <Footer />
         </div>
       </div>
     </>
@@ -225,7 +225,7 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query MyQuery {
-        page(id: 9, idType: DATABASE_ID) {
+        page(id: 8, idType: DATABASE_ID) {
           title(format: RENDERED)
           uri
           slug
