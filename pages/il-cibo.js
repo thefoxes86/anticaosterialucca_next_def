@@ -135,7 +135,7 @@ export default function Cibo({ photos }) {
             <div className="text-wrapper">
               <div className="text">
                 <div id="title">
-                  <h4 dangerouslySetInnerHTML={{ __html: photos.title }}></h4>
+                  <h4>PRIMO</h4>
                   <h4>SECONDO</h4>
                   <h4>TERZO</h4>
                   <h4>QUARTO</h4>
@@ -248,19 +248,6 @@ export async function getStaticProps() {
               uri
               sourceUrl(size: LARGE)
             }
-          }
-          galleriePagineNext {
-            gallery {
-              name
-              description
-              fieldGroupName
-              image {
-                sourceUrl(size: LARGE)
-                srcSet(size: LARGE)
-                title(format: RENDERED)
-              }
-            }
-            fieldGroupName
           }
         }
       }
