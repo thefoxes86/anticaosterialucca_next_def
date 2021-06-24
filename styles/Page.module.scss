@@ -152,6 +152,7 @@
 
         h4 {
           font-size: 120px;
+          text-transform: uppercase;
           color: white;
           margin: 0;
           position: relative;
@@ -329,7 +330,9 @@
         padding-top: 15vh;
 
         #title h4 {
-          transform: scale(0.4);
+          transform: scale(0.5);
+          width: 100%;
+          padding-bottom: -60px;
         }
       }
     }
@@ -339,6 +342,16 @@
 @media screen and (max-width: 768px) {
   .page-template-default .logo img {
     width: 150px;
+  }
+
+  .content .text-wrapper {
+    position: absolute;
+    top: -5vh;
+  }
+
+  .content .glide {
+    position: fixed;
+    bottom: 2vh;
   }
 
   .grid__container__home {

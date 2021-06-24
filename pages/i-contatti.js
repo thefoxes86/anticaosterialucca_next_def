@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { pathBackend } from "../lib/path";
 export default function Contatti(props) {
   const background = useRef();
+  const randomNumber = Math.floor(Math.random() * 5);
   const bgImages = [
     "img/un-bel-profitterol--scaled.jpg",
     "img/tiramisù-ai-pistacchi-scaled.jpg",
@@ -17,6 +18,7 @@ export default function Contatti(props) {
 
   useEffect(() => {
     background.current.classList.add("active");
+
     return () => {};
   });
 
@@ -101,7 +103,7 @@ export default function Contatti(props) {
             </div>
           </div>
           <div className="background">
-            <img ref={background} src={bgImages[0]} alt="" />
+            <img ref={background} src={bgImages[randomNumber]} alt="" />
           </div>
         </div>
       </div>

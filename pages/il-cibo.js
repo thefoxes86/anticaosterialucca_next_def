@@ -14,28 +14,44 @@ export default function Cibo({ photos }) {
   const indexEl = useRef(0);
   let titleDisplacement = 0;
   let descriptionDicplacement = 0;
+  const heightWrapperTitle = {
+    h4: 180,
+    p: 55,
+  };
 
   const showTextAnimation = (direction) => {
     if (titleDisplacement === 0 && direction === "prev") {
-      titleDisplacement = -540;
-    } else if (titleDisplacement === -540 && direction === "next") {
+      titleDisplacement =
+        -(photos.galleriePagineNext.gallery.length - 1) * heightWrapperTitle.h4;
+    } else if (
+      titleDisplacement ===
+        -(photos.galleriePagineNext.gallery.length - 1) *
+          heightWrapperTitle.h4 &&
+      direction === "next"
+    ) {
       titleDisplacement = 0;
     } else {
       titleDisplacement =
         direction === "next"
-          ? titleDisplacement - 180
-          : titleDisplacement + 180;
+          ? titleDisplacement - heightWrapperTitle.h4
+          : titleDisplacement + heightWrapperTitle.h4;
     }
 
     if (descriptionDicplacement === 0 && direction === "prev") {
-      descriptionDicplacement = -225;
-    } else if (descriptionDicplacement === -225 && direction === "next") {
+      descriptionDicplacement =
+        -(photos.galleriePagineNext.gallery.length - 1) * heightWrapperTitle.p;
+    } else if (
+      descriptionDicplacement ===
+        -(photos.galleriePagineNext.gallery.length - 1) *
+          heightWrapperTitle.p &&
+      direction === "next"
+    ) {
       descriptionDicplacement = 0;
     } else {
       descriptionDicplacement =
         direction === "next"
-          ? descriptionDicplacement - 55
-          : descriptionDicplacement + 55;
+          ? descriptionDicplacement - heightWrapperTitle.p
+          : descriptionDicplacement + heightWrapperTitle.p;
     }
 
     let title = [...document.querySelectorAll("#title h4")];
@@ -58,16 +74,18 @@ export default function Cibo({ photos }) {
     });
   };
 
-  const bgImages = [
-    "img/un-bel-profitterol--scaled.jpg",
-    "img/tiramisù-ai-pistacchi-scaled.jpg",
-    "img/tempura-di-naselli-Gazpacho-scaled.jpg",
-    "img/tarte-de-citron-scaled.jpg",
-    "img/tagliolino-ragù-bianco-di-maiale-nero-scaled.jpg",
-  ];
+  const bgImages = [];
+
+  photos.galleriePagineNext.gallery &&
+    photos.galleriePagineNext.gallery.forEach((element) =>
+      bgImages.push(element.image.sourceUrl)
+    );
 
   const startNextDistortAnimation = () => {
-    indexEl.current = indexEl.current >= 4 ? 0 : indexEl.current + 1;
+    indexEl.current =
+      indexEl.current > photos.galleriePagineNext.gallery.length - 2
+        ? 0
+        : indexEl.current + 1;
 
     gsap.to(background.current, {
       opacity: 0,
@@ -86,7 +104,10 @@ export default function Cibo({ photos }) {
     showTextAnimation("next");
   };
   const startPrevDistortAnimation = () => {
-    indexEl.current = indexEl.current <= 0 ? 4 : indexEl.current - 1;
+    indexEl.current =
+      indexEl.current <= 0
+        ? photos.galleriePagineNext.gallery.length - 1
+        : indexEl.current - 1;
 
     gsap.to(background.current, {
       opacity: 0,
@@ -122,8 +143,6 @@ export default function Cibo({ photos }) {
     }).mount();
 
     background.current.classList.add("active");
-
-    console.log(glide.index);
     return () => {};
   }, []);
   return (
@@ -135,16 +154,22 @@ export default function Cibo({ photos }) {
             <div className="text-wrapper">
               <div className="text">
                 <div id="title">
-                  <h4>PRIMO</h4>
-                  <h4>SECONDO</h4>
-                  <h4>TERZO</h4>
-                  <h4>QUARTO</h4>
+                  {photos.galleriePagineNext.gallery &&
+                    photos.galleriePagineNext.gallery.map(({ name }) => (
+                      <h4
+                        key={name}
+                        dangerouslySetInnerHTML={{ __html: name }}
+                      ></h4>
+                    ))}
                 </div>
                 <div id="description">
-                  <p>Descrizione del piatto 1</p>
-                  <p>Descrizione del piatto 2</p>
-                  <p>Descrizione del piatto 3</p>
-                  <p>Descrizione del piatto 4</p>
+                  {photos.galleriePagineNext.gallery &&
+                    photos.galleriePagineNext.gallery.map(({ description }) => (
+                      <p
+                        key={description}
+                        dangerouslySetInnerHTML={{ __html: description }}
+                      ></p>
+                    ))}
                 </div>
               </div>
             </div>
@@ -152,56 +177,21 @@ export default function Cibo({ photos }) {
               <div className="glide_cover"></div>
               <div className="glide__track" data-glide-el="track">
                 <ul className="glide__slides">
-                  <li className="glide__slide">
-                    <div className="slide">
-                      <div className="slider-image">
-                        <img
-                          src={`${pathBackend}/wp-content/uploads/2021/06/un-bel-profitterol--scaled.jpg`}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </li>
-                  <li className="glide__slide">
-                    <div className="slide">
-                      <div className="slider-image">
-                        <img
-                          src={`${pathBackend}/wp-content/uploads/2021/06/tiramisù-ai-pistacchi-scaled.jpg`}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </li>
-                  <li className="glide__slide">
-                    <div className="slide">
-                      <div className="slider-image">
-                        <img
-                          src={`${pathBackend}/wp-content/uploads/2021/06/tempura-di-naselli-Gazpacho-scaled.jpg`}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </li>
-                  <li className="glide__slide">
-                    <div className="slide">
-                      <div className="slider-image">
-                        <img
-                          src={`${pathBackend}/wp-content/uploads/2021/06/tarte-de-citron-scaled.jpg`}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </li>
-                  <li className="glide__slide">
-                    <div className="slide">
-                      <div className="slider-image">
-                        <img
-                          src={`${pathBackend}/wp-content/uploads/2021/06/tagliolino-ragù-bianco-di-maiale-nero-scaled.jpg`}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </li>
+                  {photos.galleriePagineNext.gallery &&
+                    photos.galleriePagineNext.gallery.map(({ name, image }) => (
+                      <li key={image.sourceUrl} className="glide__slide">
+                        <div className="slide">
+                          <div className="slider-image">
+                            <img
+                              src={image.sourceUrl}
+                              srcSet={image.srcSet}
+                              alt={name}
+                              title={name}
+                            />
+                          </div>
+                        </div>
+                      </li>
+                    ))}
                 </ul>
               </div>
               <div className="glide__arrows" data-glide-el="controls">
@@ -248,6 +238,19 @@ export async function getStaticProps() {
               uri
               sourceUrl(size: LARGE)
             }
+          }
+          galleriePagineNext {
+            gallery {
+              name
+              description
+              fieldGroupName
+              image {
+                sourceUrl(size: LARGE)
+                srcSet(size: LARGE)
+                title(format: RENDERED)
+              }
+            }
+            fieldGroupName
           }
         }
       }
