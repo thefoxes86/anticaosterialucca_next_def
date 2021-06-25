@@ -136,7 +136,8 @@ export default function Cibo({ photos }) {
       dragThreshold: false,
       breakpoints: {
         800: {
-          perView: 2,
+          perView: 4,
+          gap: 30,
         },
       },
     }).mount();

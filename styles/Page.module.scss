@@ -350,18 +350,39 @@
   .content .glide {
     position: fixed;
     bottom: 2vh;
-  }
 
-  .grid__container__home {
-    grid-template-areas:
-      "book logo menu"
-      ". . ."
-      ". cibo ."
-      ". vino ."
-      ". contatti .";
+    .glide__track {
+      width: 50%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      .glide__slide {
+        height: 60px;
+        width: 40px;
 
-    grid-template-rows: 1fr 2fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
+        .slide {
+          height: 60px;
+
+          .slider-image {
+            height: 60px;
+            width: 40px;
+          }
+        }
+      }
+      .glide__slide--active {
+        height: 65px;
+        width: 40px;
+
+        .slide {
+          height: 65px;
+
+          .slider-image {
+            height: 65px;
+            width: 40px;
+          }
+        }
+      }
+    }
   }
 }

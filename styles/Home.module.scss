@@ -212,9 +212,34 @@
     border-radius: 20px;
     top: 0vh;
     right: -80vw;
+
+    ul li {
+      padding: 20px 9vw 20px 0;
+    }
   }
 
   .home .logo img {
     width: 150px;
+  }
+
+  .grid__container__home {
+    grid-template-areas:
+      "book logo menu"
+      ". cibo ."
+      ". vino ."
+      ". contatti .";
+
+    grid-template-rows: auto 15vh 15vh 15vh auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    .item__menu__home .black__box {
+      width: 80px;
+      height: 95px;
+    }
+
+    .book {
+      padding-left: 10px;
+    }
   }
 }
