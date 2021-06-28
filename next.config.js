@@ -36,6 +36,11 @@ module.exports = {
         permanent: true,
       },
       {
+        source: "/menu-bar",
+        destination: "https://backend.anticaosterialucca.it/menu-bar",
+        permanent: true,
+      },
+      {
         source: "/wp-admin",
         destination: "https://backend.anticaosterialucca.it/wp-admin",
         permanent: true,
