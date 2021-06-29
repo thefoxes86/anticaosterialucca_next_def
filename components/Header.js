@@ -1,6 +1,7 @@
 /* eslint-disable */
 import Link from "next/link";
 import { pathBackend } from "../lib/path";
+import { ReactSVG } from "react-svg";
 export default function Header(props) {
   return (
     <>
@@ -42,6 +43,21 @@ export default function Header(props) {
             <li>
               <Link href="/i-contatti">
                 <a href="/i-contatti">I CONTATTI</a>
+              </Link>
+            </li>
+            <li className="style__inline">
+              <Link href="https://www.instagram.com/anticaosterialucca/">
+                <a>
+                  <ReactSVG
+                    className="link__instagram"
+                    src="img/instagram.svg"
+                  />
+                </a>
+              </Link>
+              <Link href="https://www.facebook.com/anticaosterialucca">
+                <a>
+                  <ReactSVG className="link__facebook" src="img/facebook.svg" />
+                </a>
               </Link>
             </li>
           </ul>

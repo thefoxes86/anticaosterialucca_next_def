@@ -41,3 +41,30 @@ body {
     height: 70%;
   }
 }
+
+.style__inline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  & a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .link__instagram {
+      width: 25px;
+      fill: white;
+      margin-left: 30px;
+      margin-top: 14px;
+    }
+
+    .link__facebook {
+      width: 25px;
+      fill: white;
+      margin-left: 30px;
+      justify-content: flex-end;
+    }
+  }
+}
