@@ -6,8 +6,8 @@ export default function Header(props) {
   return (
     <>
       <div className="book">
-        <Link href="/i-contatti">
-          <a>PRENOTA</a>
+        <Link href="https://backend.anticaosterialucca.it/menu-ristorante/">
+          <a dangerouslySetInnerHTML={{ __html: "MENU'" }}></a>
         </Link>
       </div>
       <div className="logo">
