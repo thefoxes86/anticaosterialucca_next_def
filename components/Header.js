@@ -6,8 +6,17 @@ export default function Header(props) {
   return (
     <>
       <div className="book">
+        <Link href="https://www.quandoo.it/it/place/antica-osteria-dal-1650-88908/widget?aid=146&utm_source=quandoo-partner&utm_medium=widget-link">
+          <button
+            className="btn-primary"
+            dangerouslySetInnerHTML={{ __html: "PRENOTA'" }}
+          ></button>
+        </Link>
         <Link href="https://backend.anticaosterialucca.it/menu-ristorante/">
-          <a dangerouslySetInnerHTML={{ __html: "MENU'" }}></a>
+          <button
+            className="btn-secondary"
+            dangerouslySetInnerHTML={{ __html: "MENU'" }}
+          ></button>
         </Link>
       </div>
       <div className="logo">
